@@ -227,7 +227,6 @@ def signup(request):
         return render(request, 'signup.html')
 
 def signin(request):
-
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
@@ -237,6 +236,7 @@ def signin(request):
         if user is not None:
             auth.login(request, user)
             return redirect('/')
+            #return redirect('http://localhost:8080')
         else:
             messages.info(request, 'Invalid Credentials')
             return redirect('/signin')
